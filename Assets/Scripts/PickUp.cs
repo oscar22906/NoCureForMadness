@@ -6,7 +6,7 @@ using TMPro;
 public class PickUp : MonoBehaviour
 {
     private float coin = 0f;
-
+    public AudioSource collectSound;
     public TextMeshProUGUI textCoins;
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -17,6 +17,7 @@ public class PickUp : MonoBehaviour
             textCoins.text = coin.ToString();
 
             Destroy(other.gameObject);
+            collectSound.Play();
         }
     }
 
